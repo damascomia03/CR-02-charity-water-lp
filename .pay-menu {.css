@@ -1,0 +1,29 @@
+.pay-menu {
+  background: var(--paper); /* Restore original light background */
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.10);
+  padding: 12px 0;
+  position: absolute; /* Position below the button */
+  right: 0;
+  min-width: 160px;
+  text-align: left;
+  margin-top: 8px;
+  z-index: 100;
+}
+
+/* Payment buttons inside the menu */
+.pay-menu .pay-btn {
+  display: block;
+  margin: 8px 16px;
+  min-width: 120px;
+  /* Restore original blue background and white text */
+  background: var(--brand-blue);
+  color: var(--paper);
+  border-radius: 8px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  padding: 10px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  border: none;
+}

@@ -1,198 +1,365 @@
-/* charity: water Brand Colors & Fonts
+/* styles.css */
+:root{
+--brand-yellow:#ffc907;
+--brand-blue:#77a8bb;
+--ink:#1a1a1a;
+--paper:#fff7e1;
+--grey:#cbccd1;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Proxima Nova', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;color:var(--ink)}
 
-Primary Colors:
-- Yellow:     #FFC907
-- Blue:       #2E9DF7
-
-Secondary Colors:
-- Light Blue: #8BD1CB
-- Green:      #4FCB53
-- Orange:     #FF902A
-- Red:        #F5402C
-- Dark Green: #159A48
-- Pink:       #F16061
-
-Fonts:
-- Proxima Nova
-- Avenir
-
-*/
-
-/* 
-  Charity: Water Landing Page Styles
-  This CSS uses the provided color palette and beginner-friendly styles.
-*/
-
-/* Set up the main font and background color for the whole page */
+/* Remove the background image from the body */
 body {
-  background-color: #f4f8fb; /* Soft light blue for a fresh look */
-  font-family: 'Avenir', 'Proxima Nova', Arial, sans-serif;
+  /* background: url("CW.png") center center/cover no-repeat; */ /* Removed background image */
   margin: 0;
-  padding: 0;
-  color: #222;
+  font-family: 'Proxima Nova', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color: var(--ink);
 }
 
-/* Add a slight shadow and rounded corners to each section for depth */
-section {
-  background: #fff; /* White background for sections */
-  border-radius: 12px; /* Rounded corners */
-  box-shadow: 0 2px 8px rgba(46, 157, 247, 0.07); /* Soft blue shadow */
-  margin: 24px 10px; /* Space between sections */
-  padding: 24px 16px;
-}
 
-/* Hero Section Styles */
+/* ===== HERO ===== */
+/* The .hero section now uses padding-top to move content to the top.
+   We do not use flexbox or grid for layout, to keep it simple for beginners. */
 .hero {
-  position: relative; /* Needed for overlay */
-  /* Set a background image that covers the whole section */
-  background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80');
-  background-size: cover;      /* Make the image cover the whole area */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat;
-  color: #fff;                 /* White text for contrast */
-  text-align: center;          /* Center the text */
-  padding: 60px 20px;          /* Add space above and below */
-  border-radius: 0 0 16px 16px; /* Only round bottom corners */
-
-  /* Add a dark overlay for better text readability */
-  /* This uses a simple linear-gradient overlay */
-  background-blend-mode: darken;
-  background-color: rgba(46, 157, 247, 0.45); /* Blue overlay */
+  position: relative;
+  min-height: 100vh;
+  padding-top: 40px; /* Add space at the top to move content down a little */
+  isolation: isolate;
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  /* Add the background image for the hero section */
+  /* Move the background image even further up by changing the position from -80px to -160px */
+  background: url("CW.png") center -160px/cover no-repeat;
+  z-index:-2;
+} /* Change the background image to CW.png for the hero section */
+/* Make the background picture lighter by using a lighter gradient overlay */
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  /* Make the overlay even lighter by using lower opacity values */
+  background:linear-gradient(90deg, rgba(0,0,0,.07) 0%, rgba(0,0,0,.03) 45%, rgba(0,0,0,.01) 100%);
+  z-index:-1;
 }
 
-/* Make the headline bold and modern */
-.hero h1 {
-  font-size: 2.5em;
-  font-weight: bold;
-  letter-spacing: 1px;
-  margin-bottom: 15px;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.15); /* Soft shadow for readability */
-}
 
-/* Style the subheadline */
-.hero p {
-  font-size: 1.2em;
-  margin-top: 0;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.12);
+/* Header: logo left, CTA stack right */
+.site-header{position:absolute;top:20px;left:20px;right:20px;z-index:3;display:flex;align-items:center;justify-content:space-between}
+.brand-logo{display:flex;align-items:center;gap:.6rem}
+.brand-logo img,
+.site-header img {
+  height:12px; /* A lot smaller logo */
+  width:auto;
+  display:block;
 }
+.brand-text{font-weight:600;font-size:1rem;color:var(--paper);font-family:'Proxima Nova', sans-serif}
 
-/* Story Section Styles */
-.story {
-  background-color: #8BD1CB; /* Secondary Light Blue */
-  color: #222;
-  text-align: center;
-  padding: 30px 20px;
-}
 
-/* Add accent color to section headings */
-h2 {
-  color: #2E9DF7; /* Primary blue */
-  margin-top: 0;
-  font-weight: bold;
-}
+.cta-stack{display:flex;flex-direction:column;align-items:flex-end;gap:18px}
+.btn-primary{background:var(--brand-yellow);color:var(--ink);text-decoration:none;font-weight:800;padding:10px 18px;font-size:1rem;border-radius:12px;box-shadow:0 8px 18px rgba(0,0,0,.18);font-family:'Proxima Nova', sans-serif;position: relative;transition: background 0.2s;} /* Make the yellow "CHANGE A LIFE TODAY" button smaller for beginners */
+/* The .btn-primary button is now also used in the navigation bar */
+.pay-btn{min-width:170px;text-align:center;background:var(--brand-blue);color:var(--paper);padding:12px 20px;border-radius:12px;text-decoration:none;font-weight:700;box-shadow:0 6px 18px rgba(0,0,0,.25);font-family:'Proxima Nova', sans-serif}
 
-/* Call-to-Action Section Styles */
-.call-to-action {
-  background-color: #FFC907; /* Primary Yellow */
-  color: #222;
-  text-align: center;
-  padding: 30px 20px;
-}
 
-/* Style the impact story image */
-.impact-image {
-  width: 100%;
-  max-width: 320px;
-  border-radius: 10px;
-  margin-bottom: 16px;
-  box-shadow: 0 2px 8px rgba(46, 157, 247, 0.10);
-}
-
-/* Donate Button Styles */
-.donate-button {
+/* Add a span for the button text so we can animate it */
+.btn-primary .btn-text {
   display: inline-block;
-  background-color: #4FCB53; /* Green */
-  color: #fff;
-  padding: 14px 32px;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: bold;
-  font-size: 1.1em;
-  margin-top: 18px;
-  box-shadow: 0 2px 8px rgba(79, 203, 83, 0.10);
-  transition: background 0.3s, transform 0.2s;
+  transition: transform 0.25s;
+}
+
+/* When hovering over the yellow button, drop the text down */
+.btn-primary:hover .btn-text {
+  transform: translateY(8px);
+}
+
+/* Hero content */
+/* Increase top padding to move content lower over the CW.png background */
+.hero-inner{
+  width:100%;
+  max-width:1200px;
+  margin:0 auto;
+  padding:80px 24px 28px; /* Increased top padding from 60px to 80px */
+  color:var(--paper);
+  display:grid;
+  gap:28px;
+  grid-template-columns:1fr auto;
+  align-items:end;
+}
+/* Heading style */
+/* Set line spacing to 1.50 for extra space between lines */
+h1{
+  margin:0 0 14px;
+  font:800 51px/1.50 'Proxima Nova', sans-serif; /* Changed line-height to 1.50 */
+  color:var(--paper);
+}
+.lede{max-width:680px;color:var(--paper);opacity:.95;font-size:20px;font-family:'Proxima Nova', sans-serif}
+
+
+/* Newsletter link bottom-right */
+/* Restore the newsletter bubble box to previous (small) size */
+.newsletter{
+  position:absolute;
+  right:22px;
+  bottom:22px;
+  z-index:3;
+  color:var(--brand-blue);
+  font-weight:700;
+  font-family:'Proxima Nova', sans-serif;
+  font-size:1rem;        /* Made the newsletter text just a bit smaller */
+  background: var(--paper); /* Bubble background */
+  padding: 8px 13px;       /* Made the bubble padding just a bit smaller */
+  border-radius: 8px;      /* Made the bubble corners just a bit smaller */
+  box-shadow: 0 4px 18px rgba(0,0,0,0.10); /* Bubble shadow */
+  border: 2px solid var(--brand-blue);     /* Blue border */
+}
+
+
+/* Center the bottom message at the bottom of the page */
+.bottom-message {
+  text-align: center;      /* Center the text inside the box */
+  margin: 40px auto 20px;  /* Add space above and below, center horizontally */
+  max-width: 700px;        /* Limit the width so it looks nice on big screens */
+}
+
+
+/* Simple navigation bar at the top of the page */
+/* All navigation bar text is now aligned to the right */
+.top-nav {
+  width: 100%;
+  background: var(--brand-blue);
+  padding: 24px 120px 24px 0; /* Increased right padding to move text closer to the right edge */
+  text-align: right; /* Align all navigation bar text to the right */
+}
+
+/* Make the navigation bar content align right */
+.top-nav div {
+  text-align: right; /* aligns inline content to the right */
+}
+
+/* Navigation links and button are now inline and spaced */
+.nav-links,
+.nav-btn {
+  display: inline-block; /* Show links and button side by side */
+  vertical-align: middle; /* Align them vertically */
+  margin: 0 12px;         /* Add space between items */
+}
+
+/* Remove the large left margin from .nav-btn */
+.nav-btn {
+  /* margin-left: 260px; */ /* Remove this line */
+  position: relative;      /* Needed for dropdown */
+}
+
+/* Style for navigation links */
+.top-nav a {
+  color: var(--paper);        
+  text-decoration: none;      
+  margin: 0 28px;             /* More space between links */
+  font-weight: bold;          
+  font-family: 'Proxima Nova', sans-serif; 
+  font-size: 1.6rem;          /* Larger text for links */
+}
+
+/* Make navigation links move up and show a bigger shadow on hover */
+.top-nav a:hover {
+  /* Move the link up more and add a bigger shadow and background color */
+  transform: translateY(-8px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+  background: rgba(255, 255, 255, 0.18); /* Slight highlight */
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+/* Make the yellow button move up and show a bigger shadow on hover */
+.btn-primary:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.22);
+  background: #ffe066; /* Slightly lighter yellow for highlight */
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+/* Hamburger icon style for students */
+.hamburger {
+  display: inline-block; /* Always show hamburger icon */
+  font-size: 1.5rem;
+  margin-left: 8px;
+  vertical-align: middle;
+  color: var(--ink); /* Make hamburger icon dark for contrast on yellow */
+  background: none;
   border: none;
   cursor: pointer;
 }
 
-/* Change button color when hovered */
-.donate-button:hover {
-  background-color: #159A48; /* Dark Green */
-  transform: translateY(-2px) scale(1.04); /* Slight lift */
+/* Dropdown menu for payment options */
+.pay-menu {
+  background: var(--brand-yellow); /* Make dropdown bubbles yellow */
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.10);
+  padding: 12px 0;
+  position: absolute; /* Position below the button */
+  right: 0;
+  min-width: 160px;
+  text-align: left;
+  margin-top: 8px;
+  z-index: 100;
 }
 
-/* Add some spacing between sections */
-section {
-  margin-bottom: 20px;
+/* Payment buttons inside the menu */
+.pay-menu .pay-btn {
+  display: block;
+  margin: 8px 16px;
+  min-width: 120px;
+  background: var(--brand-yellow); /* Make each button yellow */
+  color: var(--ink);               /* Use dark text for contrast */
+  border-radius: 8px;              /* Rounded corners for bubbles */
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  padding: 10px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  border: none;
 }
 
-/* 
-  Media Queries for Responsive Design
-  Media queries help make your website look good on different screen sizes,
-  like phones (small screens) and computers (large screens).
-*/
 
-/* This media query applies styles when the screen is 600px wide or less (like on most phones) */
-@media (max-width: 600px) {
-  /* Make hero section padding smaller on small screens */
-  .hero {
-    padding: 32px 8px;
-    font-size: 1em;
-  }
-
-  /* Make headline font size smaller so it fits on small screens */
-  .hero h1 {
-    font-size: 1.4em;
-  }
-
-  /* Make subheadline font size smaller */
-  .hero p {
-    font-size: 1em;
-  }
-
-  /* Make story and call-to-action sections have less padding */
-  .story,
-  .call-to-action,
-  .donation-section {
-    padding: 14px 8px;
-  }
-
-  /* Make impact story image smaller and stack above the text */
-  .impact-content {
-    display: block; /* Stack items vertically */
-    text-align: center;
-  }
-
-  .impact-image {
-    width: 90%;    /* Make image take up most of the width */
-    max-width: 220px;
-  }
+/* ===== HERO INNER: Use simple block layout for beginners ===== */
+.hero-inner {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 24px 28px; /* Top, sides, bottom */
+  color: var(--paper);
+  /* Remove grid and flex for beginners */
+  /* Use block layout so everything stacks vertically */
 }
 
-/* This media query applies styles when the screen is wider than 600px (like on tablets and computers) */
-@media (min-width: 601px) {
-  /* Show image and text side by side in the impact story */
-  .impact-content {
-    display: flex;           /* Place items in a row */
-    align-items: center;     /* Vertically center items */
-    justify-content: center; /* Center the whole group */
-    gap: 28px;               /* Space between image and text */
+/* Make .cta-stack stack vertically and align right on desktop, left on mobile */
+.cta-stack {
+  display: block; /* Stack buttons vertically */
+  text-align: right;
+  margin-top: 18px;
+}
+
+/* Responsive Design for All Screen Types */
+/* For tablets and smaller desktops */
+@media (max-width: 900px) {
+  .hero-inner {
+    max-width: 98vw;
+    padding: 40px 10px 18px;
+  }
+  .cta-stack {
     text-align: left;
-    max-width: 800px;
-    margin: 0 auto;
+    margin-top: 10px;
   }
-
-  .impact-image {
-    width: 300px;
+  .pay-btn {
+    min-width: 140px;
+    font-size: 0.95rem;
+    padding: 10px 16px;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  .lede {
+    font-size: 1rem;
+  }
+  .site-header {
+    flex-direction: column;
+    gap: 10px;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+  }
+  .brand-logo img,
+  .site-header img {
+    height: 16px;
+  }
+  .newsletter {
+    font-size: 0.95rem;
+    padding: 7px 10px;
+    border-radius: 7px;
+    right: 10px;
+    bottom: 10px;
+  }
+  .top-nav {
+    padding: 18px 30px 18px 0;
+    font-size: 1.2rem;
+  }
+  .top-nav a {
+    font-size: 1.2rem;
+    margin: 0 14px;
   }
 }
+
+/* For mobile phones */
+@media (max-width: 600px) {
+  .hero {
+    min-height: 70vh;
+    padding-top: 12px;
+  }
+  .hero-inner {
+    max-width: 99vw;
+    padding: 18px 4px 8px;
+  }
+  h1 {
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+  }
+  .lede {
+    font-size: 0.9rem;
+    max-width: 98vw;
+  }
+  .site-header {
+    flex-direction: column;
+    gap: 6px;
+    top: 4px;
+    left: 4px;
+    right: 4px;
+  }
+  .brand-logo img,
+  .site-header img {
+    height: 10px;
+  }
+  .newsletter {
+    font-size: 0.8rem;
+    padding: 4px 6px;
+    border-radius: 5px;
+    right: 2px;
+    bottom: 2px;
+  }
+  .bottom-message {
+    margin: 12px auto 6px;
+    max-width: 98vw;
+    font-size: 0.9rem;
+  }
+  .top-nav {
+    padding: 8px 4px 8px 0;
+    font-size: 0.95rem;
+  }
+  .top-nav a {
+    font-size: 0.95rem;
+    margin: 0 6px;
+  }
+  .pay-btn {
+    min-width: 90px;
+    font-size: 0.8rem;
+    padding: 6px 8px;
+  }
+  .cta-stack {
+    text-align: left;
+    margin-top: 6px;
+  }
+}
+
+/* For very large screens */
+@media (min-width: 1400px) {
+  .hero-inner {
+    max-width: 1400px;
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+  .bottom-message {
+    max-width: 900px;
+  }
+}/* ===== Hamburger Navigation for Mobile ===== *//* Hide navigation links and show hamburger icon on mobile */@media (max-width: 600px) {  .nav-links,  .nav-btn {    display: none; /* Hide navigation links and buttons */  }  .hamburger {    display: inline-block; /* Show hamburger icon */    cursor: pointer;    font-size: 2rem;    margin-right: 8px;    color: var(--paper);    background: none;    border: none;  }  /* Show mobile menu when active */  .mobile-nav-active .nav-links,  .mobile-nav-active .nav-btn {    display: block;    background: var(--brand-blue);    text-align: left;    padding: 12px 0;    margin: 0;    position: absolute;    top: 54px; /* Below nav bar */    right: 0;    left: 0;    z-index: 100;  }  .mobile-nav-active .nav-links a,  .mobile-nav-active .nav-btn {    display: block;    margin: 12px 18px;    font-size: 1.2rem;  }}/* By default, hide hamburger icon on desktop */.hamburger {  display: none;}/* End hamburger nav section */

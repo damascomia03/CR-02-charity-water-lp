@@ -1,47 +1,87 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Change a Life Today — Clean Water</title>
+<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
-    <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
-    </section>
+<!-- Navigation bar for students -->
+<nav class="top-nav">
+  <div style="text-align:right;">
+    <span class="nav-links">
+      <a href="#">Home</a>
+      <a href="#donate">Donate</a>
+      <a href="#">Projects</a>
+      <a href="#">Contact</a>
+    </span>
+    <span class="nav-btn">
+      <a class="btn-primary" href="#donate" id="menuToggleBtn" onclick="toggleMenu()">
+        <span class="btn-text">CHANGE A LIFE TODAY</span>
+        <span class="hamburger">&#9776;</span>
+      </a>
+      <div id="payMenu" class="pay-menu" style="display:none;">
+        <a class="pay-btn" href="#">Card</a>
+        <a class="pay-btn" href="#">Venmo</a>
+        <a class="pay-btn" href="#">Apple Pay</a>
+      </div>
+    </span>
+  </div>
+</nav>
+<header class="site-header">
+  <!-- Logo moved to the top left corner -->
+  <div style="position:absolute;top:20px;left:20px;">
+    <img src="cw_logo-2.png" alt="charity: water logo" style="height:28px;">
+  </div>
+  <div class="brand-logo">
+    <!-- Removed the charity: water text for simplicity -->
+  </div>
+  <!-- Removed .cta-stack with pay buttons -->
+</header>
 
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
-    </section>
 
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
-        </div>
-    </section>
+<main>
+  <!-- The hero section introduces the main message of the page -->
+  <section class="hero" role="banner" aria-label="Give clean water hero">
+    <div class="hero-inner">
+      <div class="copy">
+        <!-- Heading and paragraph can go here if you want them inside the hero -->
+        <!-- <h1>$10 Can Give Clean Water to a Child</h1> -->
+        <!-- <p class="lede">Every dollar you give goes directly to clean water projects, with full transparency so you see the lives you change.</p> -->
+      </div>
+    </div>
+    <!-- Newsletter link for students to practice adding links -->
+    <a class="newsletter" href="#">Subscribe to our Weekly Newsletter</a>
+  </section>
+</main>
 
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
-    </section>
+<!-- Add a container for the heading and paragraph at the bottom left -->
+<!-- This places the heading and paragraph at the bottom left corner of the page -->
+<div style="position:fixed;bottom:20px;left:20px;z-index:100;">
+  <h1>$10 Can Give Clean Water to a Child</h1>
+  <!-- Make the font size bigger for this paragraph -->
+  <p class="lede" style="font-size:1.5em;">
+    Every dollar you give goes directly to clean water projects, with full transparency so you see the lives you change.
+  </p>
+</div>
+<script>
+  // Show/hide the payment menu when the yellow button is clicked
+  function toggleMenu() {
+    var menu = document.getElementById('payMenu');
+    if (menu.style.display === 'none' || menu.style.display === '') {
+      menu.style.display = 'block';
+    } else {
+      menu.style.display = 'none';
+    }
+  }
+</script>
+</body>
+</html>
+  }
+</script>
+</body>
+</html>
 </body>
 </html>
